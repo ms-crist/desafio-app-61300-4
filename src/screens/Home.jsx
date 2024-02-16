@@ -6,11 +6,10 @@ import { colors } from "../global/colors";
 
 
 
-function Home({setCategorySelected}) {
+function Home({navigation}) {
   return (
     <View style={styles.container}>
-      <Header title={"Inicio"}/>
-      <Categories setCategorySelected={setCategorySelected}/>
+      <Categories navigation={navigation}/>
       <Footer/>
     </View>
   );

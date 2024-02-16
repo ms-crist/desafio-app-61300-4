@@ -5,13 +5,13 @@ import CategoryItem from "./CategoryItem";
 
 
 
-function Categories({ setCategorySelected }) {
+function Categories({ navigation }) {
   return (
     <View style={styles.container}>
       <FlatList
         data={categories}
         renderItem={({ item }) => (
-          <CategoryItem setCategorySelected={setCategorySelected} category={item} />
+          <CategoryItem navigation={navigation} category={item} />
         )}
         keyExtractor={(category) => category}
       />
