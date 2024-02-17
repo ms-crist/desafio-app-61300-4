@@ -1,17 +1,19 @@
-import { StyleSheet, Text, Image } from "react-native";
+import { StyleSheet, Text, Image, Pressable } from "react-native";
 import Card from "./Card";
-import { View } from "react-native-web";
 
 
-const ProductItem = ({product}) => {
+
+const ProductItem = ({product, navigation}) => {
   return (
+    <><Pressable style={styles.card} onPress={() => navigation.navigate("ItemDetail", { id: product.id })}><Card>
+      <Text style={styles.text}>{product.title}</Text>
+      <Image style={styles.image} source={{ uri: product.images }} />
+    </Card>
+    </Pressable>
+    </>
     
-      <Card>
-        <Text style={styles.text}>{product.title}</Text>
-        <Image style={styles.image} source={{uri: product.images}}/>
-      </Card>
-      
     
+ 
   );
 };
 

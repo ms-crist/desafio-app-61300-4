@@ -18,10 +18,10 @@ const Navigator = () => {
               <Header
                 title={
                   route.name === "Home"
-                    ? "Categories"
+                    ? "Categorías"
                     : route.name === "ItemListCategories"
                     ? route.params.category
-                    : "Detail"
+                    : "Detalle"
                 }
               />
             );

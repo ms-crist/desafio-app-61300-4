@@ -1,7 +1,11 @@
-import { StyleSheet, Text, View, Image, Pressable } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
 import React, { useEffect, useState } from "react";
 import allProducts from "../data/products.json";
 import { colors } from "../global/colors";
+import Card from "../components/Card";
+import { AntDesign } from '@expo/vector-icons';
+
+
 
 const ItemDetail = ({ navigation, route }) => {
   const [product, setProduct] = useState(null);
@@ -14,29 +18,37 @@ const ItemDetail = ({ navigation, route }) => {
   }, [id]);
 
   return (
-    <View style={styles.main}>
-      {product ? (
-        <View style={styles.container}>
-          <Image
-            source={{ uri: product.images[0] }}
-            style={styles.image}
-            resizeMode="cover"
-          />
-          <View style={styles.textContainer}>
-            <Text style={styles.descriptionText}>{product.title}</Text>
-            <Text style={styles.descriptionText}>{product.brand}</Text>
-            <Text style={styles.descriptionTextPrice}>${product.price}</Text>
-            <Pressable style={styles.buy}>
-              <Text style={styles.buyText}>comprar</Text>
-            </Pressable>
-          </View>
-        </View>
-      ) : (
-        <View>
-          <Text>Cargando...</Text>
-        </View>
-      )}
+    <><View style={{ flexDirection: 'row', backgroundColor: colors.blue_100 }}>
+      <AntDesign name="arrowleft" size={24} color="white"></AntDesign>
+      <Button
+        title="Volver"
+        color={colors.green_300}
+        onPress={() => navigation.navigate('Home', { name: 'Home' })} />
     </View>
+    <Card>
+        <View style={styles.main}>
+          {product ? (
+            <View style={styles.container}>
+              <Image
+                source={{ uri: product.images }}
+                style={styles.image}
+                resizeMode="cover" />
+              <View style={styles.textContainer}>
+                <Text style={styles.descriptionText}>{product.title}</Text>
+                <Text style={styles.descriptionText}>{product.brand}</Text>
+                <Text style={styles.descriptionTextPrice}>${product.price}</Text>
+                <Pressable style={styles.buy}>
+                  <Text style={styles.buyText}>Comprar</Text>
+                </Pressable>
+              </View>
+            </View>
+          ) : (
+            <View>
+              <Text>Cargando...</Text>
+            </View>
+          )}
+        </View>
+      </Card></>
   );
 };
 

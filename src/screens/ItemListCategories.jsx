@@ -37,8 +37,9 @@ function ItemListCategories({ navigation, route  }) {
       <View style={{backgroundColor: colors.blue_100, width: '100%'}}>
       <View style={{flexDirection: 'row', backgroundColor: colors.blue_100, marginRight: 280}}>
       <AntDesign name="arrowleft" size={24} color="white"></AntDesign>
-      <Button 
+      <Button
         title="Volver"
+        color={colors.green_300}
         onPress={() =>
           navigation.navigate('Home', { name: 'Home' })
         }
