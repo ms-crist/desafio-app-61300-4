@@ -4,6 +4,8 @@ import allProducts from "../data/products.json";
 import { colors } from "../global/colors";
 import Card from "../components/Card";
 import { AntDesign } from '@expo/vector-icons';
+import Footer from "../components/FooterApp";
+
 
 
 
@@ -25,6 +27,7 @@ const ItemDetail = ({ navigation, route }) => {
         color={colors.green_300}
         onPress={() => navigation.navigate('Home', { name: 'Home' })} />
     </View>
+    <View style={{ backgroundColor: colors.green_300, width: "100%"}}>
     <Card>
         <View style={styles.main}>
           {product ? (
@@ -48,7 +51,10 @@ const ItemDetail = ({ navigation, route }) => {
             </View>
           )}
         </View>
-      </Card></>
+      </Card>
+      </View>
+      <Footer/>
+      </>
   );
 };
 
@@ -66,24 +72,24 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   image: {
-    width: "100%",
-    height: 400,
+    width: "30%",
+    height: 250,
     marginVertical: 15,
   },
   textContainer: {
     flexDirection: "column",
     justifyContent: "center",
-    alignItems: "flex-start",
+    alignItems: "center",
     padding: 6,
   },
   descriptionText: {
-    fontFamily: "InterRegular",
+    fontFamily: "PoppinsRegular",
     fontSize: 16,
     color: "black",
     paddingVertical: 4,
   },
   descriptionTextPrice: {
-    fontFamily: "InterRegular",
+    fontFamily: "PoppinsRegular",
     fontSize: 25,
     color: "black",
     paddingVertical: 6,
@@ -91,10 +97,10 @@ const styles = StyleSheet.create({
   buy: {
     padding: 10,
     borderRadius: 6,
-    backgroundColor: colors.blue_300,
+    backgroundColor: colors.blue_100,
   },
   buyText: {
-    fontFamily: "InterBold",
+    fontFamily: "PoppinsBold",
     fontSize: 22,
     color: "white",
   },
